@@ -34,8 +34,8 @@ public class GameController {
       finalOutput = System.lineSeparator() + "Someone won the game";
     } else if (this.someoneHasWon(gameBoard) && winner.equals(GamePlayer.HUMAN)) {
       finalOutput = System.lineSeparator() + "You won the game! Congratulations!";
-    } else if (this.someoneHasWon(gameBoard) && winner.equals(GamePlayer.HUMAN)) {
-      finalOutput = System.lineSeparator() + "The won the game...";
+    } else if (this.someoneHasWon(gameBoard) && winner.equals(GamePlayer.ROBOT)) {
+      finalOutput = System.lineSeparator() + "The bot won...";
     } else if (!gameBoard.spaceIsLeft()) {
       finalOutput = System.lineSeparator() + "It's a draw";
     } else {
@@ -128,6 +128,10 @@ public class GameController {
     // This function needs to return null if nobody has won yet - you can use someoneHasWon( $game ) for this.
     // If someone has won, it needs to return either GamePlayer::Human or GamePlayer::Robot.
     // =============================================================================================================
+
+    if (someoneHasWon(gameBoard)) {
+      return gameBoard.getLastPlayer();
+    }
 
     return null;
   }
