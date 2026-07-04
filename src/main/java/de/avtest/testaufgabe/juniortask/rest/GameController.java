@@ -151,6 +151,14 @@ public class GameController {
     // Inside `player` you have the player which wants to play now.
     // If he is allowed to play, you have to return true, otherwise you have to return false.
 
+    if(gameBoard.getLastPlayer() == null){
+      return true;
+    }
+
+    if (gameBoard.getLastPlayer() == player){
+      return false;
+    }
+
     return true;
   }
 
