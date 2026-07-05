@@ -65,50 +65,34 @@ public class GameController {
     // shorten this function without compromising its functionality. Note that by "shorten", we don't mean to just
     // remove spaces and line breaks ;)
     // =============================================================================================================
-    if ( // Check the first row
-      gameBoard.getRow(0).getSpace(0) == gameBoard.getRow(0).getSpace(1) &&
-        gameBoard.getRow(0).getSpace(0) == gameBoard.getRow(0).getSpace(2) &&
-        gameBoard.getRow(0).getSpace(0) != GameMark.NONE
-    ) return true;
 
-    if ( // Check the second row
-      gameBoard.getRow(1).getSpace(0) == gameBoard.getRow(1).getSpace(1) &&
-        gameBoard.getRow(1).getSpace(0) == gameBoard.getRow(1).getSpace(2) &&
-        gameBoard.getRow(1).getSpace(0) != GameMark.NONE
-    ) return true;
 
-    if ( // Check the third row
-      gameBoard.getRow(2).getSpace(0) == gameBoard.getRow(2).getSpace(1) &&
-        gameBoard.getRow(2).getSpace(0) == gameBoard.getRow(2).getSpace(2) &&
-        gameBoard.getRow(2).getSpace(0) != GameMark.NONE
-    ) return true;
+    for (int i = 0; i < 3; i++) {
+      if (  // Check all rows
+        gameBoard.getRow(i).getSpace(0) == gameBoard.getRow(i).getSpace(1) &&
+        gameBoard.getRow(i).getSpace(0) == gameBoard.getRow(i).getSpace(2) &&
+        gameBoard.getRow(i).getSpace(0) != GameMark.NONE){
+        return true;
+      }
+    }
 
-    if ( // Check the first column
-      gameBoard.getColumn(0).getSpace(0) == gameBoard.getColumn(0).getSpace(1) &&
-        gameBoard.getColumn(0).getSpace(0) == gameBoard.getColumn(0).getSpace(2) &&
-        gameBoard.getColumn(0).getSpace(0) != GameMark.NONE
-    ) return true;
-
-    if ( // Check the second column
-      gameBoard.getColumn(1).getSpace(0) == gameBoard.getColumn(1).getSpace(1) &&
-        gameBoard.getColumn(1).getSpace(0) == gameBoard.getColumn(1).getSpace(2) &&
-        gameBoard.getColumn(1).getSpace(0) != GameMark.NONE
-    ) return true;
-
-    if ( // Check the third column
-      gameBoard.getColumn(2).getSpace(0) == gameBoard.getColumn(2).getSpace(1) &&
-        gameBoard.getColumn(2).getSpace(0) == gameBoard.getColumn(2).getSpace(2) &&
-        gameBoard.getColumn(2).getSpace(0) != GameMark.NONE
-    ) return true;
+    for (int i = 0; i < 3; i++) {
+      if (  // Check all columns
+        gameBoard.getColumn(i).getSpace(0) == gameBoard.getColumn(i).getSpace(1) &&
+        gameBoard.getColumn(i).getSpace(0) == gameBoard.getColumn(i).getSpace(2) &&
+        gameBoard.getColumn(i).getSpace(0) != GameMark.NONE){
+        return true;
+      }
+    }
 
     if ( // Check the main diagonal
-      gameBoard.getMainDiagonal().getSpace(0) == gameBoard.getMainDiagonal().getSpace(1) &&
+        gameBoard.getMainDiagonal().getSpace(0) == gameBoard.getMainDiagonal().getSpace(1) &&
         gameBoard.getMainDiagonal().getSpace(0) == gameBoard.getMainDiagonal().getSpace(2) &&
         gameBoard.getMainDiagonal().getSpace(0) != GameMark.NONE
     ) return true;
 
     if ( // Check the anti-diagonal
-      gameBoard.getAntiDiagonal().getSpace(0) == gameBoard.getAntiDiagonal().getSpace(1) &&
+        gameBoard.getAntiDiagonal().getSpace(0) == gameBoard.getAntiDiagonal().getSpace(1) &&
         gameBoard.getAntiDiagonal().getSpace(0) == gameBoard.getAntiDiagonal().getSpace(2) &&
         gameBoard.getAntiDiagonal().getSpace(0) != GameMark.NONE
     ) return true;
