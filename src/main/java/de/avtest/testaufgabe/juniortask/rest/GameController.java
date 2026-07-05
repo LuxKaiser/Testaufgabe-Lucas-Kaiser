@@ -67,19 +67,21 @@ public class GameController {
     // =============================================================================================================
 
 
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < gameBoard.getSize(); i++) {
       if (  // Check all rows
         gameBoard.getRow(i).getSpace(0) == gameBoard.getRow(i).getSpace(1) &&
         gameBoard.getRow(i).getSpace(0) == gameBoard.getRow(i).getSpace(2) &&
+        gameBoard.getRow(i).getSpace(0) == gameBoard.getRow(i).getSpace(3) &&
         gameBoard.getRow(i).getSpace(0) != GameMark.NONE){
         return true;
       }
     }
 
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < gameBoard.getSize(); i++) {
       if (  // Check all columns
         gameBoard.getColumn(i).getSpace(0) == gameBoard.getColumn(i).getSpace(1) &&
         gameBoard.getColumn(i).getSpace(0) == gameBoard.getColumn(i).getSpace(2) &&
+        gameBoard.getColumn(i).getSpace(0) == gameBoard.getColumn(i).getSpace(3) &&
         gameBoard.getColumn(i).getSpace(0) != GameMark.NONE){
         return true;
       }
@@ -88,12 +90,14 @@ public class GameController {
     if ( // Check the main diagonal
         gameBoard.getMainDiagonal().getSpace(0) == gameBoard.getMainDiagonal().getSpace(1) &&
         gameBoard.getMainDiagonal().getSpace(0) == gameBoard.getMainDiagonal().getSpace(2) &&
+        gameBoard.getMainDiagonal().getSpace(0) == gameBoard.getMainDiagonal().getSpace(3) &&
         gameBoard.getMainDiagonal().getSpace(0) != GameMark.NONE
     ) return true;
 
     if ( // Check the anti-diagonal
         gameBoard.getAntiDiagonal().getSpace(0) == gameBoard.getAntiDiagonal().getSpace(1) &&
         gameBoard.getAntiDiagonal().getSpace(0) == gameBoard.getAntiDiagonal().getSpace(2) &&
+        gameBoard.getAntiDiagonal().getSpace(0) == gameBoard.getAntiDiagonal().getSpace(3) &&
         gameBoard.getAntiDiagonal().getSpace(0) != GameMark.NONE
     ) return true;
 
